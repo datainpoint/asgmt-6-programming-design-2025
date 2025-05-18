@@ -2,7 +2,7 @@ import unittest
 import importlib
 
 class TestAssignmentSix(unittest.TestCase):
-    def test_01(self):
+    def test_01_ReduceArgs(self):
         reduce_args = asgmt.ReduceArgs(1, 2, 3)
         self.assertEqual(reduce_args.summation(), 6)
         self.assertEqual(reduce_args.product(), 6)
@@ -12,13 +12,13 @@ class TestAssignmentSix(unittest.TestCase):
         reduce_args = asgmt.ReduceArgs(1, 2, 3, 4, 5)
         self.assertEqual(reduce_args.summation(), 15)
         self.assertEqual(reduce_args.product(), 120)
-    def test_02(self):
+    def test_02_SortArgs(self):
         sort_args = asgmt.SortArgs()
         self.assertEqual(sort_args.sort_asc(1, 2, 0), [0, 1, 2])
         self.assertEqual(sort_args.sort_desc(1, 2, 0), [2, 1, 0])
         self.assertEqual(sort_args.sort_asc(4, 3, 5), [3, 4, 5])
         self.assertEqual(sort_args.sort_desc(4, 3, 5), [5, 4, 3])
-    def test_03(self):
+    def test_03_PrimeNumbers(self):
         prime_numbers = asgmt.PrimeNumbers(3)
         self.assertEqual(prime_numbers.length, 3)
         self.assertEqual(prime_numbers.nth_element(1), 2)
@@ -43,7 +43,7 @@ class TestAssignmentSix(unittest.TestCase):
         self.assertEqual(prime_numbers.nth_element(6), 13)
         self.assertEqual(prime_numbers.nth_element(7), 17)
         self.assertEqual(prime_numbers.get_sequence(), [2, 3, 5, 7, 11, 13, 17])
-    def test_04(self):
+    def test_04_FizzBuzz(self):
         fizz_buzz = asgmt.FizzBuzz(15)
         self.assertEqual(fizz_buzz.length, 15)
         self.assertEqual(fizz_buzz.nth_element(1), 1)
@@ -51,11 +51,11 @@ class TestAssignmentSix(unittest.TestCase):
         self.assertEqual(fizz_buzz.nth_element(5), 'Buzz')
         self.assertEqual(fizz_buzz.nth_element(15), 'Fizz Buzz')
         self.assertEqual(fizz_buzz.get_sequence(), [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'Fizz Buzz'])
-    def test_05(self):
+    def test_05_import_teams_json(self):
         teams_json = asgmt.import_teams_json()
         self.assertIsInstance(teams_json, dict)
         self.assertEqual(len(teams_json["data"]), 30)
-    def test_06(self):
+    def test_06_find_teams_conference_division(self):
         self.assertEqual(asgmt.find_teams_conference_division("BOS"), ('East', 'Atlantic'))
         self.assertEqual(asgmt.find_teams_conference_division("MIA"), ('East', 'Southeast'))
         self.assertEqual(asgmt.find_teams_conference_division("NYK"), ('East', 'Atlantic'))
@@ -64,7 +64,7 @@ class TestAssignmentSix(unittest.TestCase):
         self.assertEqual(asgmt.find_teams_conference_division("DEN"), ('West', 'Northwest'))
         self.assertEqual(asgmt.find_teams_conference_division("PHX"), ('West', 'Pacific'))
         self.assertEqual(asgmt.find_teams_conference_division("GSW"), ('West', 'Pacific'))
-    def test_07(self):
+    def test_07_find_teams_city(self):
         self.assertEqual(asgmt.find_teams_city("Celtics"), "Boston")
         self.assertEqual(asgmt.find_teams_city("Heat"), "Miami")
         self.assertEqual(asgmt.find_teams_city("Knicks"), "New York")
@@ -73,16 +73,16 @@ class TestAssignmentSix(unittest.TestCase):
         self.assertEqual(asgmt.find_teams_city("Nuggets"), "Denver")
         self.assertEqual(asgmt.find_teams_city("Suns"), "Phoenix")
         self.assertEqual(asgmt.find_teams_city("Warriors"), "Golden State")
-    def test_08(self):
+    def test_08_import_movies_csv(self):
         movies_csv = asgmt.import_movies_csv()
         self.assertEqual(movies_csv.shape, (250, 6))
-    def test_09(self):
+    def test_09_find_min_max_runtime(self):
         min_max_runtime = asgmt.find_min_max_runtime()
         self.assertEqual(min_max_runtime["min_runtime"][0], 45)
         self.assertEqual(min_max_runtime["min_runtime"][1], 'Sherlock Jr.')
         self.assertEqual(min_max_runtime["max_runtime"][0], 238)
         self.assertEqual(min_max_runtime["max_runtime"][1], 'Gone with the Wind')
-    def test_10(self):
+    def test_10_value_counts_parent_guide(self):
         counts_parent_guide = asgmt.value_counts_parent_guide()
         self.assertEqual(counts_parent_guide["R"], 102)
         self.assertEqual(counts_parent_guide["PG"], 38)
